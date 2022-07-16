@@ -3,110 +3,123 @@ package ss1.Baitap;
 import java.util.Scanner;
 
 public class ReadNumber {
+    public static String readNumber(int number) {
+        String read = "";
+        switch (number) {
+            case 0:
+                read = "Zero";
+                break;
+            case 1:
+                read = "One";
+                break;
+            case 2:
+                read = "Two";
+                break;
+            case 3:
+                read = "Three";
+                break;
+            case 4:
+                read = "Four";
+                break;
+            case 5:
+                read = "Five";
+                break;
+            case 6:
+                read = "Six";
+                break;
+            case 7:
+                read = "Seven";
+                break;
+            case 8:
+                read = "Eight";
+                break;
+            case 9:
+                read = "Nine";
+                break;
+            case 10:
+                read = "Ten";
+        }
+        return read;
+    }
+
+    public static String readNumberTwo(int number) {
+        String readNumberTwo = "";
+        switch (number) {
+            case 0:
+                readNumberTwo = "";
+                break;
+            case 1:
+                readNumberTwo = "One";
+                break;
+            case 2:
+                readNumberTwo = "Twenty";
+                break;
+            case 3:
+                readNumberTwo = "Thirty";
+                break;
+            case 4:
+                readNumberTwo = "Fourty";
+                break;
+            case 5:
+                readNumberTwo = "Fifty";
+                break;
+            case 6:
+                readNumberTwo = "Sixty";
+                break;
+            case 7:
+                readNumberTwo = "Seventy";
+                break;
+            case 8:
+                readNumberTwo = "Eighty";
+                break;
+            case 9:
+                readNumberTwo = "Ninety";
+                break;
+        }
+        return readNumberTwo;
+    }
+
     public static void main(String[] args) {
+
         int number;
-        number = 0;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter a number ");
         number = scanner.nextInt();
 
-        if (number < 10) {
+        if (number >= 0 && number <= 10) {
+            System.out.println(readNumber(number));
+
+        } else if (number >= 10 && number < 20) {
             switch (number) {
-                case 0:
-                    System.out.print("Zero");
+                case 11:
+                    System.out.println("Eleven");
                     break;
-                case 1:
-                    System.out.print("One");
+                case 12:
+                    System.out.println("Twelve");
                     break;
-                case 2:
-                    System.out.print("Two");
-                    break;
-                case 3:
-                    System.out.print("Three");
-                    break;
-                case 4:
-                    System.out.print("Four");
-                    break;
-                case 5:
-                    System.out.print("Five");
-                    break;
-                case 6:
-                    System.out.print("Six");
-                    break;
-                case 7:
-                    System.out.print("Seven");
-                    break;
-                case 8:
-                    System.out.print("Eight");
-                    break;
-                case 9:
-                    System.out.print("Nine");
-                    break;
+                default:
+                    int ten = number / 10;
+                    System.out.println(readNumber(ten) + "teen");
             }
-        }
-        if (number >= 10 && number < 20) {
-            int a = number % 10;
-            switch (a) {
-                case 0:
-                    System.out.print("Ten");
-                    break;
-                case 1:
-                    System.out.print("Eleven");
-                    break;
-                case 2:
-                    System.out.print("Twelve");
-                    break;
-                case 3:
-                    System.out.print("Thirteen");
-                    break;
-                case 4:
-                    System.out.print("Fourteen");
-                    break;
-                case 5:
-                    System.out.print("Fifteen");
-                    break;
-                case 6:
-                    System.out.print("Sixteen");
-                    break;
-                case 7:
-                    System.out.print("Seventeen");
-                    break;
-                case 8:
-                    System.out.print("Eighteen");
-                    break;
-                case 9:
-                    System.out.print("Nineteen");
-                    break;
+
+        } else if (number >= 20 && number < 100) {
+            int ten = number / 10;
+            int donvi = number % 10;
+            System.out.println(readNumberTwo(ten) + readNumber(donvi));
+
+        } else if (number >= 100 && number < 1000) {
+            int hundred = number / 100;
+            int ten = (number % 100) / 10;
+            int donvi = (number % 100) % 10;
+
+            if (number <= 119) {
+                System.out.println(readNumber(hundred) + " Hundred And " + readNumber(donvi) + "teen");
+            } else {
+                System.out.println(readNumber(hundred) + " Hundred And " + readNumberTwo(ten) + " " + readNumber(donvi));
             }
+        } else {
+            System.out.println(" Out of ability ");
         }
-        if (number >= 20 && number < 100) {
-            int a = number / 10;
-            double b = Math.floor(a);
-            switch ((int) b) {
-                case 2:
-                    System.out.print("Twenty");
-                    break;
-                case 3:
-                    System.out.print("Thirty");
-                    break;
-                case 4:
-                    System.out.print("Fourty");
-                    break;
-                case 5:
-                    System.out.print("Fifty");
-                    break;
-                case 6:
-                    System.out.print("Sixty");
-                    break;
-                case 7:
-                    System.out.print("Seventy");
-                    break;
-                case 8:
-                    System.out.print("Eighty");
-                    break;
-                case 9:
-                    System.out.print("ninety");
-                    break;
-            }
-        }
+
     }
 }
